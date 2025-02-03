@@ -1,0 +1,71 @@
+<form [formGroup]="cardFormulario" (ngSubmit)="onSubmit()" class="formulario-card">
+  <!-- Campo de Nome -->
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input matInput formControlName="nome" required>
+    @if (cardFormulario.get('nome')?.errors) {
+      <mat-error>
+        @if (cardFormulario.get('nome')?.hasError('required')) {
+          O nome é obrigatório.
+        } @else if (cardFormulario.get('nome')?.hasError('maxlength')) {
+          O nome deve ter no máximo 100 caracteres.
+        }
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <!-- Campo de Descrição -->
+  <mat-form-field appearance="fill">
+    <mat-label>Descrição</mat-label>
+    <textarea matInput formControlName="descricao" required></textarea>
+    @if (cardFormulario.get('descricao')?.errors) {
+      <mat-error>
+        @if (cardFormulario.get('descricao')?.hasError('required')) {
+          A descrição é obrigatória.
+        } @else if (cardFormulario.get('descricao')?.hasError('minlength')) {
+          A descrição não pode estar vazia.
+        }
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <!-- Campo de Horas Planejadas -->
+  <mat-form-field appearance="fill">
+    <mat-label>Horas Planejadas</mat-label>
+    <input matInput formControlName="horasPlanejadas" type="number" required>
+    @if (cardFormulario.get('horasPlanejadas')?.errors) {
+      <mat-error>
+        @if (cardFormulario.get('horasPlanejadas')?.hasError('required')) {
+          As horas planejadas são obrigatórias.
+        } @else if (cardFormulario.get('horasPlanejadas')?.hasError('min')) {
+          As horas planejadas devem ser um número positivo.
+        }
+      </mat-error>
+    }
+  </mat-form-field>
+
+  <!-- Campo de Status -->
+  <mat-form-field appearance="fill">
+    <mat-label>Status</mat-label>
+    <mat-select formControlName="status" required>
+      @for (status of statusOptions; track status.value) {
+        <mat-option [value]="status.value">{{ status.label }}</mat-option>
+      }
+    </mat-select>
+    @if (cardFormulario.get('status')?.errors) {
+      <mat-error>O status é obrigatório.</mat-error>
+    }
+  </mat-form-field>
+
+  <!-- Campo de Proprietário -->
+  <mat-form-field appearance="fill">
+    <mat-label>Proprietário</mat-label>
+    <input matInput formControlName="proprietario" type="number" required>
+    @if (cardFormulario.get('proprietario')?.errors) {
+      <mat-error>O proprietário é obrigatório.</mat-error>
+    }
+  </mat-form-field>
+
+  <!-- Botão de Enviar -->
+  <button mat-raised-button color="primary" type="submit" [disabled]="cardFormulario.invalid">Adicionar Card</button>
+</form>

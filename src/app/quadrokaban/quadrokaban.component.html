@@ -1,0 +1,87 @@
+<div class="quadro-kanban">
+  <!-- Coluna A Fazer -->
+  <div class="coluna-kanban">
+    <mat-card class="cabecalho-coluna">
+      <mat-card-header>
+        <mat-card-title>A Fazer</mat-card-title>
+        <span class="contador">{{ getTasksStatus(1).length }}</span>
+      </mat-card-header>
+    </mat-card>
+    <div class="conteudo-coluna">
+<!--      $index pra iterar pelo index -->
+      @for (task of getTasksStatus(1); track $index) {
+        <mat-card class="card">
+          <mat-card-header>
+            <mat-card-title>{{ task.name }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ task.description }}</p>
+            <p><strong>Horas Planejadas:</strong> {{ task.planned_hours }}</p>
+            <p><strong>Proprietário:</strong> {{ task.owner }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button color="primary" [routerLink]="['/editar', task.id]">Editar</button>
+          </mat-card-actions>
+        </mat-card>
+      }
+    </div>
+  </div>
+
+  <!-- Coluna Em Progresso -->
+  <div class="coluna-kanban">
+    <mat-card class="cabecalho-coluna">
+      <mat-card-header>
+        <mat-card-title>Em Progresso</mat-card-title>
+        <span class="contador">{{ getTasksStatus(2).length }}</span>
+      </mat-card-header>
+    </mat-card>
+    <div class="conteudo-coluna">
+      @for (task of getTasksStatus(2); track $index) {
+        <mat-card class="card">
+          <mat-card-header>
+            <mat-card-title>{{ task.name }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ task.description }}</p>
+            <p><strong>Horas Planejadas:</strong> {{ task.planned_hours }}</p>
+            <p><strong>Proprietário:</strong> {{ task.owner }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button color="primary" [routerLink]="['/editar', task.id]">Editar</button>
+          </mat-card-actions>
+        </mat-card>
+      }
+    </div>
+  </div>
+
+  <!-- Coluna Concluído -->
+  <div class="coluna-kanban">
+    <mat-card class="cabecalho-coluna">
+      <mat-card-header>
+        <mat-card-title>Concluído</mat-card-title>
+        <span class="contador">{{ getTasksStatus(3).length }}</span>
+      </mat-card-header>
+    </mat-card>
+    <div class="conteudo-coluna">
+      @for (task of getTasksStatus(3); track $index) {
+        <mat-card class="card">
+          <mat-card-header>
+            <mat-card-title>{{ task.name }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ task.description }}</p>
+            <p><strong>Horas Planejadas:</strong> {{ task.planned_hours }}</p>
+            <p><strong>Proprietário:</strong> {{ task.owner }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button color="primary" [routerLink]="['/editar', task.id]">Editar</button>
+          </mat-card-actions>
+        </mat-card>
+      }
+    </div>
+  </div>
+
+  <button mat-raised-button color="primary" class="botao-add-task" routerLink="/add-task">
+    Adicionar card
+  </button>
+</div>

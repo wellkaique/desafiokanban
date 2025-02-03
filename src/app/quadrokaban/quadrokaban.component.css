@@ -1,0 +1,52 @@
+.quadro-kanban {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  min-height: 80vh;
+  background: #f5f5f5;
+}
+
+.coluna-kanban {
+  flex: 1;
+  background: #ebecf0;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cabecalho-coluna {
+  margin-bottom: 15px;
+  padding: 10px;
+  background: #dcdde1;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cabecalho-coluna h2 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #2d3436;
+}
+
+.contador {
+  background: #636e72;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-size: 0.9em;
+}
+
+.conteudo-coluna {
+  min-height: 500px;
+  background: #f5f6fa;
+  border-radius: 3px;
+  padding: 10px;
+  transition: background-color 0.2s;
+}
+
+.botao-add-task {
+  width: 120px;
+  height: 30px;
+}
