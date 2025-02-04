@@ -8,7 +8,7 @@ import {TelaedicaoComponent} from './telaedicao/telaedicao.component';
 
 const routes: Routes = [
   { path: '', component: TelaloginComponent },
-  { path: 'tela-cadastro', component: TelacadastroComponent },
+  { path: 'cadastro', component: TelacadastroComponent },
   { path: 'add-task', component: AddTaskComponent },
   { path: 'quadro', component: QuadrokabanComponent },
   { path: 'editar/:id', component: TelaedicaoComponent },

@@ -37,7 +37,7 @@ export class TelacadastroComponent implements OnInit{
       this.http.post('http://localhost:8000/api/users/', userData).subscribe({
         next: (response) => {
           console.log('Usuário cadastrado!', response);
-          this.router.navigate(['/login']);
+          this.router.navigate(['']);
         },
         error: (erro) => {
           console.error('Erro no cadastro:', erro);
